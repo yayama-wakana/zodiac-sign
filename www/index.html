@@ -10,28 +10,80 @@
   <script src="js/cssua.min.js"></script>
   <script>
     function calculate() {
-        var myname = $("#myname").val();
-        var myage = $("#myage").val();
-        var birthyear = new Date().getFullYear() - myage;
-        var text = myname + " was born in " + birthyear + "!";
-        navigator.notification.alert(text, null, "Welcome to Monaca！");
+        var mouth = $("#mouth").val();
+        var day = $("#day").val(); 
+        
+
+        if(12 == mouth && day >= 22 || 1 == mouth && day <= 19){
+          var text = "やぎ座";
+        }
+
+        if(1 == mouth && day >= 20 || 2 == mouth && day <= 18){
+          var text = "みずがめ座";
+        }
+
+        if(2 == mouth && day >= 29 || 3 == mouth && day <= 20){
+          var text = "うお座";
+        }
+
+        if(3 == mouth && day >= 21 || 4 == mouth && day <= 19){
+          var text = "おひつじ座";
+        }
+
+        if(4 == mouth && day >= 20 || 5 == mouth && day <= 20){
+          var text = "おうし座";
+        }
+
+        if(5 == mouth && day >= 21 || 6 == mouth && day <= 21){
+          var text = "ふたご座";
+        }
+
+        if(6 == mouth && day >= 22 || 7 == mouth && day <= 22){
+          var text = "かに座";
+        }
+
+        if(7 == mouth && day >= 23 || 8 == mouth && day <= 22){
+          var text = "しし座";
+        }
+
+        if(8 == mouth && day >= 23 || 9 == mouth && day <= 22){
+          var text = "おとめ座";
+        }
+
+        if(9 == mouth && day >= 23 || 10 == mouth && day <= 23){
+          var text = "てんびん座";
+        }
+
+        if(10 == mouth && day >= 24 || 11 == mouth && day <= 22){
+          var text = "さそり座";
+        }
+
+        if(11 == mouth && day >= 23 || 12 == mouth && day <= 21){
+          var text = "いて座";
+        }
+
+        $("#result").text("あなたは"+text+"です");
+        
     }
   </script>
 </head>
 <body>
   <div data-role="page" id="TopPage"> 
     <header data-role="header" data-position="fixed" data-theme="c">
-      <h1>BirthYear App</h1>
+      <h1>星座判定</h1>
     </header>
       <section data-role="content">
 
-        What's your name?
-        <input type="text" id="myname" class="input-text">
+        月
+        <input type="text" id="mouth" class="input-text">
         
-        How old are you?
-        <input type="text" id="myage" class="input-text">
+        日
+        <input type="text" id="day" class="input-text">
 
-        <a class="button" onclick="calculate();">calculate your birth year!</a>
+        <a class="button" onclick="calculate();">判定！</a>
+
+        <div id="result"></div>
+
     </section>
   </div> 
 </body>
